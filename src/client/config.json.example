@@ -1,0 +1,4 @@
+{
+  "oktaOrgUrl": "<yourOktaOrgUrl>",
+  "oktaClientId": "<yourClientId>"
+}
