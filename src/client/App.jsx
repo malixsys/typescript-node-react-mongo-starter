@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import { AuthContext, AuthProvider } from './common/AuthProvider';
 
 const Authenticated = () => {
-  const [cart, setCart] = useState(null);
+  const [profile, setProfile] = useState(null);
   const { user, actions, api } = React.useContext(AuthContext);
   React.useEffect(() => {
     async function load() {
-      const result = await api.getCart();
-      setCart(result);
+      const result = await api.getUser();
+      setProfile(result);
     }
 
     if (api) {
       load();
     }
-  }, [api, setCart]);
+  }, [api, setProfile]);
 
   return (
     <div>
       <h1>Welcome, {user.name}</h1>
       <button onClick={actions.logout}>Sign out</button>
       <blockquote>
-        <h2>Cart</h2>
-        <pre>{JSON.stringify({ cart }, null, 2)}</pre>
+        <h2>Profile</h2>
+        <pre>{JSON.stringify({ profile }, null, 2)}</pre>
       </blockquote>
     </div>
   );

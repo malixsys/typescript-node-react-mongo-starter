@@ -5,6 +5,6 @@ export const getApi = token => {
     headers: { Authorization: `${token}` }
   });
   return {
-    getCart: () => api.get('/api/cart').then(({ data }) => data)
+    getUser: () => api.get('/app/user').then(({ data }) => data)
   };
 };
